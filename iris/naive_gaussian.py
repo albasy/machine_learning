@@ -64,7 +64,7 @@ class NaiveGaussian:
 if __name__ == '__main__':
     from sklearn import datasets
     iris = datasets.load_iris()
-    x = iris.data[:, :2]
+    x = iris.data[:]
     y = iris.target
     
     g = NaiveGaussian(x, y)
