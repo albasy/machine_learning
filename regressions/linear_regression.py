@@ -15,11 +15,10 @@ class LinearRegression:
         train_labels: n x 1 numpy array.
         '''
         # Add bias.
-        self.train_data = np.hstack((train_data, [[1] for i in range(len(train_data))]))
-        self.train_labels = train_labels
+        new_train_data = np.hstack((train_data, [[1] for i in range(len(train_data))]))
         
-        XTX = np.linalg.inv(np.matmul(np.transpose(self.train_data), self.train_data))
-        XTY = np.matmul(np.transpose(self.train_data), train_labels)
+        XTX = np.linalg.inv(np.matmul(np.transpose(new_train_data), new_train_data))
+        XTY = np.matmul(np.transpose(new_train_data), train_labels)
         # (X^TX)^-1X^TY.
         self.params = np.matmul(XTX, XTY)
         
