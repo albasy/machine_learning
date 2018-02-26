@@ -56,5 +56,4 @@ class Softmax():
         loss = probabilities - one_hot_labels
         
         # Compute loss x input.
-        gradient = np.matmul(np.transpose(loss), data)
-        return gradient
+        return np.matmul(np.transpose(loss), data)
